@@ -1,7 +1,7 @@
 import { socket } from 'websocket';
 
-exports.getAnimeList = () => {
-  socket.emit('anime', {type: "getList"});
+exports.getAnimeList = (userName) => {
+  socket.emit('anime', {type: "getList", userName});
 }
 
 exports.setAnimeList = (json) => {
