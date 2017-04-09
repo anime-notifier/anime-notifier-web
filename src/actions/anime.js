@@ -1,3 +1,5 @@
+import { socket } from 'websocket';
+
 exports.getAnimeList = () => {
-  return;
+  socket.emit('anime', {type: "getList"});
 }
