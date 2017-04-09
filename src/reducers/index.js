@@ -1,7 +1,7 @@
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
 
-const anime = (state = { animeList: {}}, action) => {
+const anime = (state = { animeList: []}, action) => {
   switch (action.type) {
     case 'SET_ANIME_LIST':
       return {...state, animeList: action.animeList};

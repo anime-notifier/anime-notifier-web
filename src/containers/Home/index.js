@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { getAnimeList } from 'actions/anime';
 
 class Home extends Component {
-  componentDidMount(){
+  componentWillMount(){
     getAnimeList();
   }
 
   render() {
     return (
       <div>
-        <p>home</p>
+        <ul>
+          {this.props.animeList.map((val) => {
+            return <li>{val.title}</li>;
+          })}
+        </ul>
       </div>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    animeList: state.anime.animeList
+  };
+};
+
+export default connect(mapStateToProps)(Home);
