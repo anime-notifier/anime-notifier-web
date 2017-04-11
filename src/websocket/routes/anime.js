@@ -1,7 +1,15 @@
 import { store } from 'index';
 
-import { setAnimeList } from 'actions/anime'
-
 exports.setAnimeList = (data) => {
-  store.dispatch(setAnimeList(data));
+  store.dispatch({
+    type: 'SET_ANIME_LIST',
+    animeList: data.animeList
+  });
+}
+
+exports.malAnimeList = (data) => {
+  store.dispatch({
+    type: 'MAL_ANIME_LIST',
+    malAnimeList: data.malAnimeList
+  });
 }

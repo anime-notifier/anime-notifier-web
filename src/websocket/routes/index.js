@@ -6,7 +6,8 @@ const routes =
   {
     on: 'anime',
     routes: [
-      {type: 'setAnimeList', func: anime.setAnimeList}
+      {type: 'setAnimeList', func: anime.setAnimeList},
+      {type: 'malAnimeList', func: anime.malAnimeList}
     ]
   }
 ]

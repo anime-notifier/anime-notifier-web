@@ -1,10 +1,15 @@
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
 
-const anime = (state = { animeList: []}, action) => {
+const anime = (state = { malAnimeList: [], animeList: {}}, action) => {
   switch (action.type) {
     case 'SET_ANIME_LIST':
-      return {...state, animeList: action.animeList};
+      // Set an object with the title as the key
+      const list = {...state.animeList};
+      list[action.animeList.title] = action.animeList.available;
+      return {...state, animeList: list};
+    case 'MAL_ANIME_LIST':
+      return {...state, malAnimeList: action.malAnimeList};
     default:
       return state;
   }
