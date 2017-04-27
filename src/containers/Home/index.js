@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Row, Button, Form, FormGroup, Label, Input, Card, Media, Badge } from 'reactstrap';
 
 import background from 'assets/background.jpg';
 
@@ -44,12 +44,32 @@ class Home extends Component {
         </Row>
         <Row style={{paddingTop: '200px', margin: 0}}>
           <Col>
-            <ul style={{color: 'white'}}>
-              {this.props.malAnimeList.map((val, i) => {
-                return <div key={i}><img src={val.series_image} alt="anime thumbnail" /><p>{val.series_title}, available: {this.props.animeList[val.series_title] === undefined? "?": this.props.animeList[val.series_title].toString()}</p></div>;
-              })}
-            </ul>
-            hi
+            {this.props.malAnimeList.map((val, i) => {
+              let badge = <Badge><i className="fa fa-spin fa-spinner" /></Badge>;
+              switch(this.props.animeList[val.series_title]){
+                case true:
+                  badge = <Badge color="success">Available</Badge>;
+                  break;
+                case false:
+                  badge = <Badge color="warning">Not Available</Badge>;
+                  break;
+                default:
+                  break;
+              }
+              return (
+                <Card key={i} style={{margin: "0px 10px 10px 10px", padding: "10px", backgroundColor: "#00111b", color: "white"}}>
+                  <Media>
+                    <Media left href="#" style={{marginRight: "15px"}}>
+                      <img src={val.series_image} alt="anime thumbnail" style={{width: "48px", height: "68px"}}/>
+                    </Media>
+                    <Media body>
+                      <Media heading>{val.series_title}  {badge}</Media>
+                      <p>Episodes: {val.my_watched_episodes}/{val.series_episodes === 0 ? "-" : val.series_episodes}</p>
+                    </Media>
+                  </Media>
+                </Card>
+              );
+            })}
           </Col>
         </Row>
       </div>
