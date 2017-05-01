@@ -6,6 +6,8 @@ import background from 'assets/background.jpg';
 
 import { getAnimeList } from 'actions/anime';
 
+import NavBar from 'components/NavBar';
+
 class Home extends Component {
   constructor(props){
     super(props);
@@ -28,9 +30,10 @@ class Home extends Component {
   render() {
     return (
       <div style={{backgroundColor: '#111f27', backgroundRepeat: 'no-repeat', backgroundSize: 'auto 600px', backgroundImage: `url(${background})`, backgroundPosition: 'top', maxWidth: '100%'}}>
+        <NavBar />
         <Row style={{maxWidth: '100%', margin: 0}}>
           <Col>
-            <h1 style={{textAlign: 'center', paddingTop: '250px', color: 'white'}}><strong>ANIME TRACKER</strong></h1>
+            <h1 style={{textAlign: 'center', paddingTop: '200px', color: 'white'}}><strong>ANIME TRACKER</strong></h1>
             <Form onSubmit={(e) => {this.onClick(e)}} >
               <FormGroup style={{maxWidth: '400px', margin: '0 auto'}}>
                 <Label for="userName" style={{display: 'block', textAlign: 'center', color: 'white'}}>MAL username</Label>
