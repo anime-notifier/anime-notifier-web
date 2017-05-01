@@ -16,8 +16,8 @@ class NavBar extends Component {
   render() {
     return (
       <Navbar light toggleable style={{backgroundColor: "rgba(0,0,0,.65)"}}>
-        <NavbarToggler right>
-          <Dropdown isOpen={this.state.isOpen} onClick={() => {this.toggle()}}>
+        <NavbarToggler right tag="a" type="" onClick={() => {this.toggle()}} style={{cursor: "pointer"}}>
+          <Dropdown isOpen={this.state.isOpen} toggle={() => {}}>
             <i className="fa fa-navicon" style={{color: "white", fontSize: "1.5em"}} />
             <DropdownMenu right>
               <DropdownItem disabled>About</DropdownItem>
