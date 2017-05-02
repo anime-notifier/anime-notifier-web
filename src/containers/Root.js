@@ -6,6 +6,8 @@ import {
   Switch
 } from 'react-router-dom'
 
+import NavBar from 'components/NavBar';
+
 import Home from './Home';
 
 class Root extends Component {
@@ -14,6 +16,7 @@ class Root extends Component {
       <Provider store={this.props.store}>
         <ConnectedRouter history={this.props.history}>
           <div>
+            <NavBar />
             <Switch>
               <Route path="/" component={Home} />
             </Switch>
