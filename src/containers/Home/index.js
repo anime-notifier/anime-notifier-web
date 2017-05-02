@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Col, Row, Button, Form, FormGroup, Label, Input, Card, Media, Badge } from 'reactstrap';
+import { Alert, Col, Row, Button, Form, FormGroup, Label, Input, Card, Media, Badge } from 'reactstrap';
 
 import background from 'assets/background.jpg';
 
@@ -40,9 +40,13 @@ class Home extends Component {
               </FormGroup>
               <Button style={{opacity: '0.9', margin: '0 auto', display: 'block', marginTop: '15px'}} >Search</Button>
             </Form>
+            <br />
+            <Alert color="warning">
+              <strong>Important!</strong> Nyaa.se, The website providing the data for airing anime is down. Because of that, some of the functionality will not work for the moment. Sorry for the inconvenience.
+            </Alert>
           </Col>
         </Row>
-        <Row style={{paddingTop: '200px', margin: 0}}>
+        <Row style={{paddingTop: '100px', margin: 0}}>
           <Col>
             {this.props.malAnimeList.map((val, i) => {
               let badge = <Badge><i className="fa fa-spin fa-spinner" /></Badge>;
