@@ -53,6 +53,9 @@ class Home extends Component {
                 case false:
                   badge = <Badge color="warning">Not Available</Badge>;
                   break;
+                case "error":
+                  badge = <Badge>Unknown</Badge>;
+                  break;
                 default:
                   break;
               }
