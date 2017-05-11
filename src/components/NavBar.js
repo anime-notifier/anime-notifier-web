@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar, NavbarBrand, Collapse, Nav, NavItem, NavLink, NavbarToggler, Dropdown, DropdownMenu, DropdownItem } from 'reactstrap';
 
 class NavBar extends Component {
@@ -15,7 +16,7 @@ class NavBar extends Component {
 
   render() {
     return (
-      <Navbar light toggleable className="fixed-top" style={{backgroundColor: "rgba(0,0,0,.65)"}}>
+      <Navbar light toggleable className="fixed-top" style={{backgroundColor: "rgba(0,0,0,.65)", position: "absolute"}}>
         <NavbarToggler right tag="a" type="" onClick={() => {this.toggle()}} style={{cursor: "pointer"}}>
           <Dropdown isOpen={this.state.isOpen} toggle={() => {}}>
             <i className="fa fa-navicon" style={{color: "white", fontSize: "1.5em"}} />
@@ -24,7 +25,7 @@ class NavBar extends Component {
             </DropdownMenu>
           </Dropdown>
         </NavbarToggler>
-        <NavbarBrand href="/" style={{color: "white"}}>AniTrack</NavbarBrand>
+        <NavbarBrand><Link to="/" style={{color: "white", textDecoration: 'none'}}>AniTrack</Link></NavbarBrand>
         <Collapse navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
