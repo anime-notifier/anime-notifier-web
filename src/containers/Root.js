@@ -9,6 +9,7 @@ import {
 import NavBar from 'components/NavBar';
 
 import Home from './Home';
+import UserList from './UserList';
 
 class Root extends Component {
   render() {
@@ -18,6 +19,7 @@ class Root extends Component {
           <div>
             <NavBar />
             <Switch>
+              <Route path="/:userName" component={UserList} />
               <Route path="/" component={Home} />
             </Switch>
           </div>
