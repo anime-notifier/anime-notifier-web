@@ -20,7 +20,7 @@ class NavBar extends Component {
         <NavbarToggler right onClick={() => {this.toggle()}}>
           <i className="fa fa-navicon" style={{color: "white", fontSize: "1.5em"}} />
         </NavbarToggler>
-        <NavbarBrand><Link to="/" style={{color: "white", textDecoration: 'none'}}>AniTrack</Link></NavbarBrand>
+        <NavbarBrand tag="div"><Link to="/" style={{color: "white", textDecoration: 'none'}}>AniTrack</Link></NavbarBrand>
         <Collapse navbar isOpen={this.state.isOpen}>
           <Nav className="ml-auto" navbar>
             <NavItem>
