@@ -7,6 +7,7 @@ const routes =
     on: 'anime',
     routes: [
       {type: 'setAnimeList', func: anime.setAnimeList},
+      {type: 'setAnimeListBulk', func: anime.setAnimeListBulk},
       {type: 'malAnimeList', func: anime.malAnimeList}
     ]
   }
@@ -32,6 +33,7 @@ module.exports = (socket) => {
   mapRoute();
   routes.forEach((val) => {
     socket.on(val.on, (data) => {
+      console.log(data);
       const index = val.types.indexOf(data.type);
       if(index !== -1){
         val.functions[index](data);

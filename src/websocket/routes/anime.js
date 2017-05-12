@@ -7,6 +7,13 @@ exports.setAnimeList = (data) => {
   });
 }
 
+exports.setAnimeListBulk = (data) => {
+  store.dispatch({
+    type: 'SET_ANIME_LIST_BULK',
+    animeListBulk: data.animeListBulk
+  });
+}
+
 exports.malAnimeList = (data) => {
   store.dispatch({
     type: 'MAL_ANIME_LIST',
