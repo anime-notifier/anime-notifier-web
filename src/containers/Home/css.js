@@ -1,6 +1,6 @@
 import background from 'assets/background.jpg';
 
-exports.background = {backgroundColor: '#111f27', backgroundRepeat: 'no-repeat', backgroundSize: 'auto 600px', backgroundImage: `url(${background})`, backgroundPosition: 'top', maxWidth: '100%'};
+exports.background = {backgroundRepeat: 'no-repeat', backgroundSize: 'auto 600px', backgroundImage: `url(${background})`, backgroundPosition: 'top', maxWidth: '100%'};
 
 exports.topRow = {maxWidth: '100%', margin: 0};
 exports.heading = {textAlign: 'center', paddingTop: '250px', color: 'white'};
