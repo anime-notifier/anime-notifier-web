@@ -16,6 +16,9 @@ const anime = (state = { malAnimeList: [], animeList: {}}, action) => {
       })
       return {...state, animeList: list};
     case 'MAL_ANIME_LIST':
+      if(action.malAnimeList === "invalid_username"){
+        return {...state, malAnimeList: action.malAnimeList};
+      }
       // Handle finished and not aired anime status
       list = {...state.animeList};
       // Finished anime is always available

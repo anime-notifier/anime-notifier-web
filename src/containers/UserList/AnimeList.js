@@ -14,6 +14,13 @@ class AnimeList extends Component {
   }
 
   render() {
+    if(this.props.malAnimeList === "invalid_username"){
+      return (
+        <div style={{textAlign: 'center'}}>
+          <p style={{color: 'white', fontSize: '2em'}}>Username "{this.props.userName}" not found</p>
+        </div>
+      )
+    }
     // Loading screen
     if(this.props.malAnimeList.length === 0){
       return (
