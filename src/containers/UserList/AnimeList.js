@@ -23,6 +23,13 @@ class AnimeList extends Component {
       )
     }
     const list = this.props.malAnimeList.filter(val => val.my_status === this.props.statusFilter).map((val, i) => {
+      const allEpisodeWatched = val.series_episodes !== 0 && val.series_episodes - val.my_watched_episodes === 0 ;
+      let badge = null;
+      if(allEpisodeWatched){
+        badge = <StatusBadge available="completed" />
+      }else{
+        badge = <StatusBadge available={this.props.animeList[val.series_title]} />
+      }
       return (
         <Card key={i} style={css.cardDiv}>
           <Media>
@@ -30,7 +37,7 @@ class AnimeList extends Component {
               <img src={val.series_image} alt="anime thumbnail" style={css.cardImage}/>
             </Media>
             <Media body>
-              <Media heading>{val.series_title}  <StatusBadge available={this.props.animeList[val.series_title]} /></Media>
+              <Media heading>{val.series_title}  {badge}</Media>
               <p>Episodes: {val.my_watched_episodes}/{val.series_episodes === 0 ? "-" : val.series_episodes}</p>
             </Media>
           </Media>
