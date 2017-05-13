@@ -4,6 +4,8 @@ import { combineReducers } from 'redux';
 const anime = (state = { malAnimeList: [], animeList: {}}, action) => {
   let list;
   switch (action.type) {
+    case 'RESET_MAL_ANIME_LIST':
+      return {...state, malAnimeList: []};
     case 'SET_ANIME_LIST':
       // Set an object with the title as the key
       list = {...state.animeList};

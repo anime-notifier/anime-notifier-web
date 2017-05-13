@@ -4,12 +4,13 @@ import { Card, Media } from 'reactstrap';
 
 import css from './css';
 
-import { getAnimeList } from 'actions/anime';
+import { resetMalAnimeList, getAnimeList } from 'actions/anime';
 
 import StatusBadge from 'components/StatusBadge';
 
 class AnimeList extends Component {
   componentWillMount(){
+    resetMalAnimeList();
     getAnimeList(this.props.userName);
   }
 
