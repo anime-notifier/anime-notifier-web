@@ -42,7 +42,23 @@ class Home extends Component {
         </Row>
         <Row style={css.botRow}>
           <Col>
-            <br />
+            <div style={css.flexRow}>
+              <div style={css.flexItem}>
+                <i className="fa fa-line-chart" style={css.flexLogo} />
+                <h4>Open Source</h4>
+                <p style={css.flexDesc}>All of the codes used to power this project is available publicly. Anyone can modify and contribute to make it better!</p>
+              </div>
+              <div style={css.flexItem}>
+                <i className="fa fa-line-chart" style={css.flexLogo} />
+                <h4>Simple and effective</h4>
+                <p style={css.flexDesc}>The Process is extremely simple. Simply enter your username and view the results compiled into a single list.</p>
+              </div>
+              <div style={css.flexItem}>
+                <i className="fa fa-line-chart" style={css.flexLogo} />
+                <h4>Free of charge</h4>
+                <p style={css.flexDesc}>Best of all, the service is free of charge! Feel free to enjoy and keep track of those anime you {"can't"} wait to watch.</p>
+              </div>
+            </div>
           </Col>
         </Row>
       </div>
