@@ -11,7 +11,8 @@ exports.input = {textAlign: 'center', opacity: '0.7'};
 exports.inputButton = {opacity: '0.9', margin: '0 auto', display: 'block', marginTop: '15px'};
 
 exports.botRow = {paddingTop: '200px', margin: 0};
-exports.flexRow = {textAlign: "center", color: 'white', display: "flex", justifyContent: "space-around"};
+exports.flexRow = {textAlign: "center", color: 'white', display: "flex", justifyContent: "space-around", flexWrap: 'wrap'};
 exports.flexItem = {maxWidth: "25%"};
-exports.flexLogo = {color: "#00c2ff", fontSize: "4.5em"};
+exports.flexItemSmall = {maxWidth: "100%"};
+exports.flexLogo = {color: "#6BF", fontSize: "4.5em"};
 exports.flexDesc = {color: "#bebebe"};
