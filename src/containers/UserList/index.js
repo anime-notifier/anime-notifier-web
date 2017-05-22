@@ -15,17 +15,17 @@ class UserList extends Component {
     return (
       <div style={css.background}>
         <Row style={css.topRow}>
-          <Col>
+          <Col style={css.colPadding}>
             <h1 style={css.userHeading}>{this.props.match.params.userName}</h1>
           </Col>
         </Row>
         <Row style={css.watchStatusRow}>
-          <Col>
+          <Col style={css.colPadding}>
             <WatchStatus statusFilter={this.state.statusFilter} updateStatus={(id) => {this.setState({statusFilter: id})}} />
           </Col>
         </Row>
         <Row style={css.listRow}>
-          <Col>
+          <Col style={css.colPadding}>
             <AnimeList userName={this.props.match.params.userName} statusFilter={this.state.statusFilter}/>
           </Col>
         </Row>
