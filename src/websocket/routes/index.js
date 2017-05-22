@@ -33,7 +33,7 @@ module.exports = (socket) => {
   mapRoute();
   routes.forEach((val) => {
     socket.on(val.on, (data) => {
-      console.log(data);
+      // console.log(data);
       const index = val.types.indexOf(data.type);
       if(index !== -1){
         val.functions[index](data);
