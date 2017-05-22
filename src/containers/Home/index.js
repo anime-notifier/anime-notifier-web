@@ -4,6 +4,12 @@ import MediaQuery from 'react-responsive';
 
 import css from './css';
 
+const flexItem  = [
+  {icon: "fa-code", title: "Open Source", desc: "All of the codes used to power this project is available publicly. Anyone can modify and contribute to make it better!"},
+  {icon: "fa-flash", title: "Simple and Fast", desc: "The Process is extremely simple. Simply enter your username and view the results compiled into a single list."},
+  {icon: "fa-unlock", title: "Free of Charge", desc: "Best of all, the service is free of charge! Feel free to enjoy and keep track of those anime you can't wait to watch."}
+];
+
 class Home extends Component {
   constructor(props){
     super(props);
@@ -24,11 +30,6 @@ class Home extends Component {
   }
 
   render() {
-    const flexItem  = [
-      {icon: "fa-line-chart", title: "Open Source", desc: "All of the codes used to power this project is available publicly. Anyone can modify and contribute to make it better!"},
-      {icon: "fa-line-chart", title: "Simple and effective", desc: "The Process is extremely simple. Simply enter your username and view the results compiled into a single list."},
-      {icon: "fa-line-chart", title: "Free of charge", desc: "Best of all, the service is free of charge! Feel free to enjoy and keep track of those anime you can't wait to watch."}
-    ];
     return (
       <div style={css.background} >
         <Row style={css.topRow}>
