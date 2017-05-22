@@ -18,7 +18,7 @@ class StatusBadge extends Component {
         color = "info";
         child = "Completed";
         break;
-      case "error":
+      case "unknown":
         child = "Unknown";
         break;
       default:
