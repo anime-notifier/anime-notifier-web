@@ -1,22 +1,22 @@
 import { store } from 'index';
 
-exports.setAnimeList = (data) => {
+exports.setAnimeStatus = (data) => {
   store.dispatch({
-    type: 'SET_ANIME_LIST',
+    type: 'SET_ANIME_STATUS',
+    animeStatus: data.animeStatus
+  });
+}
+
+exports.setAnimeStatusBulk = (data) => {
+  store.dispatch({
+    type: 'SET_ANIME_STATUS_BULK',
+    animeStatusBulk: data.animeStatusBulk
+  });
+}
+
+exports.animeList = (data) => {
+  store.dispatch({
+    type: 'ANIME_LIST',
     animeList: data.animeList
-  });
-}
-
-exports.setAnimeListBulk = (data) => {
-  store.dispatch({
-    type: 'SET_ANIME_LIST_BULK',
-    animeListBulk: data.animeListBulk
-  });
-}
-
-exports.malAnimeList = (data) => {
-  store.dispatch({
-    type: 'MAL_ANIME_LIST',
-    malAnimeList: data.malAnimeList
   });
 }
