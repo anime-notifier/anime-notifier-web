@@ -4,18 +4,18 @@ import { Card, Media } from 'reactstrap';
 
 import css from './css';
 
-import { resetMalAnimeList, getAnimeList } from 'actions/anime';
+import { resetAnimeList, getAnimeStatus } from 'actions/anime';
 
 import StatusBadge from 'components/StatusBadge';
 
 class AnimeList extends Component {
   componentWillMount(){
-    resetMalAnimeList();
-    getAnimeList(this.props.userName);
+    resetAnimeList();
+    getAnimeStatus(this.props.provider, this.props.userName);
   }
 
   render() {
-    if(this.props.malAnimeList === "invalid_username"){
+    if(this.props.animeList === "invalid_username"){
       return (
         <div style={{textAlign: 'center'}}>
           <p style={{color: 'white', fontSize: '2em'}}>Username "{this.props.userName}" not found</p>
@@ -23,20 +23,20 @@ class AnimeList extends Component {
       )
     }
     // Loading screen
-    if(this.props.malAnimeList.length === 0){
+    if(this.props.animeList.length === 0){
       return (
         <div style={{textAlign: 'center'}}>
           <i className="fa fa-spin fa-spinner" style={{color: 'white', fontSize: "5em"}} />
         </div>
       )
     }
-    const list = this.props.malAnimeList.filter(val => val.my_status === this.props.statusFilter).map((val, i) => {
+    const list = this.props.animeList.filter(val => val.my_status === this.props.statusFilter).map((val, i) => {
       const allEpisodeWatched = val.series_episodes !== 0 && val.series_episodes - val.my_watched_episodes === 0 ;
       let badge = null;
       if(allEpisodeWatched){
         badge = <StatusBadge available="completed" />
       }else{
-        badge = <StatusBadge available={this.props.animeList[val.series_title]} />
+        badge = <StatusBadge available={this.props.animeStatus[val.series_title]} />
       }
       return (
         <Card key={i} style={css.cardDiv}>
@@ -60,8 +60,8 @@ class AnimeList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    animeList: state.anime.animeList,
-    malAnimeList: state.anime.malAnimeList
+    animeStatus: state.anime.animeStatus,
+    animeList: state.anime.animeList
   };
 };
 

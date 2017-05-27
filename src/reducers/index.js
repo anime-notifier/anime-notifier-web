@@ -1,37 +1,38 @@
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
 
-const anime = (state = { malAnimeList: [], animeList: {}}, action) => {
-  let list;
+const anime = (state = { animeList: [], animeStatus: {}}, action) => {
+  let status;
   switch (action.type) {
-    case 'RESET_MAL_ANIME_LIST':
-      return {...state, malAnimeList: []};
-    case 'SET_ANIME_LIST':
+    case 'RESET_ANIME_LIST':
+      return {...state, animeList: []};
+    case 'SET_ANIME_STATUS':
       // Set an object with the title as the key
-      list = {...state.animeList};
-      list[action.animeList.title] = action.animeList.available;
-      return {...state, animeList: list};
-    case 'SET_ANIME_LIST_BULK':
-      list = {...state.animeList};
-      action.animeListBulk.forEach((val) => {
-        list[val.title] = val.available;
+      status = {...state.animeStatus};
+      status[action.animeStatus.title] = action.animeStatus.available;
+      return {...state, animeStatus: status};
+    case 'SET_ANIME_STATUS_BULK':
+      status = {...state.animeStatus};
+      action.animeStatusBulk.forEach((val) => {
+        status[val.title] = val.available;
       })
-      return {...state, animeList: list};
-    case 'MAL_ANIME_LIST':
-      if(action.malAnimeList === "invalid_username"){
-        return {...state, malAnimeList: action.malAnimeList};
+      return {...state, animeStatus: status};
+    case 'ANIME_LIST':
+      // If invalid, pass on the message
+      if(action.animeList === "invalid_username"){
+        return {...state, animeList: action.animeList};
       }
       // Handle finished and not aired anime status
-      list = {...state.animeList};
+      status = {...state.animeStatus};
       // Finished anime is always available
-      action.malAnimeList.filter(val => val.series_status === 2).forEach((val) => {
-        list[val.series_title] = true;
+      action.animeList.filter(val => val.series_status === 2).forEach((val) => {
+        status[val.series_title] = true;
       })
       // Not aired anime is always not available
-      action.malAnimeList.filter(val => val.series_status === 3).forEach((val) => {
-        list[val.series_title] = false;
+      action.animeList.filter(val => val.series_status === 3).forEach((val) => {
+        status[val.series_title] = false;
       })
-      return {...state, malAnimeList: action.malAnimeList, animeList: list};
+      return {...state, animeList: action.animeList, animeStatus: status};
     default:
       return state;
   }
