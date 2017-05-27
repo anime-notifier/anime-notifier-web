@@ -30,7 +30,7 @@ class AnimeList extends Component {
         </div>
       )
     }
-    const list = this.props.animeList.filter(val => val.my_status === this.props.statusFilter).map((val, i) => {
+    const list = this.props.animeList.filter(val => val.watchStatus === this.props.statusFilter).map((val, i) => {
       const allEpisodeWatched = val.episodes !== 0 && val.episodes - val.watchCount === 0 ;
       let badge = null;
       if(allEpisodeWatched){
