@@ -12,6 +12,7 @@ class UserList extends Component {
   }
 
   render() {
+    const params = this.props.match.params;
     return (
       <div style={css.background}>
         <Row style={css.topRow}>
@@ -26,7 +27,7 @@ class UserList extends Component {
         </Row>
         <Row style={css.listRow}>
           <Col style={css.colPadding}>
-            <AnimeList userName={this.props.match.params.userName} statusFilter={this.state.statusFilter}/>
+            <AnimeList provider={params.provider} userName={params.userName} statusFilter={this.state.statusFilter}/>
           </Col>
         </Row>
       </div>

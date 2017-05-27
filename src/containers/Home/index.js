@@ -13,7 +13,7 @@ const flexItem  = [
 class Home extends Component {
   constructor(props){
     super(props);
-    this.state = {userName: ""};
+    this.state = {userName: "", provider: "mal"};
   }
 
   linkState(state, val){
@@ -24,7 +24,7 @@ class Home extends Component {
 
   onClick(event){
     if(this.state.userName !== ''){
-      this.props.history.push(`/${this.state.userName}`)
+      this.props.history.push(`/${this.state.provider}/${this.state.userName}`)
     }
     event.preventDefault();
   }

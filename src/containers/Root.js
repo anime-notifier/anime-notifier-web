@@ -19,7 +19,7 @@ class Root extends Component {
           <div>
             <NavBar />
             <Switch>
-              <Route path="/:userName" component={UserList} />
+              <Route path="/:provider/:userName" component={UserList} />
               <Route path="/" component={Home} />
             </Switch>
           </div>
