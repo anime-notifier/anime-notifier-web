@@ -25,12 +25,12 @@ const anime = (state = { animeList: [], animeStatus: {}}, action) => {
       // Handle finished and not aired anime status
       status = {...state.animeStatus};
       // Finished anime is always available
-      action.animeList.filter(val => val.series_status === 2).forEach((val) => {
-        status[val.series_title] = true;
+      action.animeList.filter(val => val.status === 2).forEach((val) => {
+        status[val.title] = true;
       })
       // Not aired anime is always not available
-      action.animeList.filter(val => val.series_status === 3).forEach((val) => {
-        status[val.series_title] = false;
+      action.animeList.filter(val => val.status === 3).forEach((val) => {
+        status[val.title] = false;
       })
       return {...state, animeList: action.animeList, animeStatus: status};
     default:
