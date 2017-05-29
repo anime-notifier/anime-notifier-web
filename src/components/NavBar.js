@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, NavbarBrand, Collapse, Nav, NavItem, NavLink, NavbarToggler } from 'reactstrap';
+import { Navbar, NavbarBrand, Collapse, Nav, NavItem, NavbarToggler } from 'reactstrap';
+
+import Login from './Login';
 
 class NavBar extends Component {
   constructor(props){
@@ -24,7 +26,7 @@ class NavBar extends Component {
         <Collapse navbar isOpen={this.state.isOpen}>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink style={{color: "white"}}>About</NavLink>
+              <Login/>
             </NavItem>
           </Nav>
         </Collapse>
