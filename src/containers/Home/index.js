@@ -74,9 +74,9 @@ class Home extends Component {
           <Col>
             <div style={css.flexRow}>
               {
-                flexItem.map((item) => {
+                flexItem.map((item, i) => {
                   return (
-                    <MediaQuery maxWidth={768}>
+                    <MediaQuery maxWidth={768} key={i}>
                       {(matches) => {
                         return (
                           <div style={matches? css.flexItemSmall : css.flexItem }>
