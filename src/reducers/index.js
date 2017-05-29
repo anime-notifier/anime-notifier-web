@@ -1,6 +1,17 @@
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
 
+const status = (state = { about: null, status: null, error: null}, action) => {
+  switch (action.type) {
+    case 'HANDLE_STATUS':
+      return {...state, about: action.about, status: action.status, error: action.error};
+    case 'RESET_STATUS':
+      return {...state, about: null, status: null, error: null};
+    default:
+      return state;
+  }
+};
+
 const anime = (state = { animeList: [], animeStatus: {}}, action) => {
   let animeStatus;
   switch (action.type) {
@@ -39,6 +50,7 @@ const anime = (state = { animeList: [], animeStatus: {}}, action) => {
 };
 
 const rootReducer = combineReducers({
+  status,
   anime,
   router: routing
 });

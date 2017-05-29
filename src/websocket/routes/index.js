@@ -1,8 +1,15 @@
+import status from './status';
 import anime from './anime';
 
 // Set up routes here instead of messing with code
 const routes =
 [
+  {
+    on: 'status',
+    routes: [
+      {type: 'status', func: status.handleStatus}
+    ]
+  },
   {
     on: 'anime',
     routes: [
