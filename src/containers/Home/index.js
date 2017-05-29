@@ -47,7 +47,7 @@ class Home extends Component {
             <h1 style={css.heading}><strong>ANIME TRACKER</strong></h1>
             <Form onSubmit={(e) => {this.onClick(e)}} >
               <FormGroup style={css.formGroup}>
-                <Label for="userName" style={css.formLabel}>MAL username</Label>
+                <Label for="userName" style={css.formLabel}>Username</Label>
                 <div style={css.inputDiv}>
                   <InputGroup>
                     <InputGroupButton>
