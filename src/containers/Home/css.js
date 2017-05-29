@@ -8,6 +8,7 @@ exports.formGroup = {maxWidth: '400px', margin: '0 auto'};
 exports.formLabel = {display: 'block', textAlign: 'center', color: 'white'};
 exports.inputDiv = {borderRadius: '0.25em', border: '2px solid #fff'};
 exports.input = {textAlign: 'center', opacity: '0.7'};
+exports.inputDropdown = {margin: "1px 0px 1px 1px", borderRadius: "3px 0px 0px 3px"};
 exports.inputButton = {opacity: '0.9', margin: '0 auto', display: 'block', marginTop: '15px'};
 
 exports.botRow = {paddingTop: '200px', margin: 0};

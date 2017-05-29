@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Row, Button, Form, FormGroup, Label, Input, InputGroup, InputGroupButton, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import MediaQuery from 'react-responsive';
 
 import css from './css';
@@ -30,6 +30,16 @@ class Home extends Component {
   }
 
   render() {
+    let provider = "";
+    switch(this.state.provider){
+      case "mal":
+        provider = "MAL";
+        break;
+      case "alist":
+        provider = "AniList";
+        break;
+      default:
+    }
     return (
       <div style={css.background} >
         <Row style={css.topRow}>
@@ -39,7 +49,20 @@ class Home extends Component {
               <FormGroup style={css.formGroup}>
                 <Label for="userName" style={css.formLabel}>MAL username</Label>
                 <div style={css.inputDiv}>
-                  <Input style={css.input} placeholder="Username" value={this.state.userName} onChange={(e) => {this.linkState('userName', e.target.value)}} />
+                  <InputGroup>
+                    <InputGroupButton>
+                      <UncontrolledDropdown>
+                        <DropdownToggle caret style={css.inputDropdown}>
+                          {provider}
+                        </DropdownToggle>
+                        <DropdownMenu>
+                          <DropdownItem onClick={() => {this.setState({provider: "mal"})}}>MAL</DropdownItem>
+                          <DropdownItem onClick={() => {this.setState({provider: "alist"})}}>AniList</DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
+                    </InputGroupButton>
+                    <Input style={css.input} placeholder="Username" value={this.state.userName} onChange={(e) => {this.linkState('userName', e.target.value)}} />
+                  </InputGroup>
                 </div>
               </FormGroup>
               <Button style={css.inputButton} >Search</Button>
