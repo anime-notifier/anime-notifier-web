@@ -9,7 +9,7 @@ import {
 import NavBar from 'components/NavBar';
 
 import Home from './Home';
-import Login from './Login';
+import LoginRegister from './LoginRegister';
 import UserList from './UserList';
 
 class Root extends Component {
@@ -20,7 +20,8 @@ class Root extends Component {
           <div>
             <NavBar />
             <Switch>
-              <Route path="/login" component={Login} />
+              <Route path="/login" component={LoginRegister} />
+              <Route path="/register" component={LoginRegister} />
               <Route path="/:provider/:userName" component={UserList} />
               <Route path="/" component={Home} />
             </Switch>
