@@ -1,4 +1,5 @@
 import status from './status';
+import user from './user';
 import anime from './anime';
 
 // Set up routes here instead of messing with code
@@ -8,6 +9,13 @@ const routes =
     on: 'status',
     routes: [
       {type: 'status', func: status.handleStatus}
+    ]
+  },
+  {
+    on: 'user',
+    routes: [
+      {type: 'checkSession', func: user.checkSession},
+      {type: 'setMyUserData', func: user.setMyUserData}
     ]
   },
   {
