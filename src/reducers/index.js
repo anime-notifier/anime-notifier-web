@@ -12,6 +12,17 @@ const status = (state = { about: null, status: null, error: null}, action) => {
   }
 };
 
+const user = (state = { isLoggedIn: null, myUserData: {}}, action) => {
+  switch (action.type) {
+    case 'CHECK_SESSION':
+      return {...state, isLoggedIn: action.isLoggedIn};
+    case 'SET_MY_USER_DATA':
+      return {...state, myUserData: action.myUserData};
+    default:
+      return state;
+  }
+};
+
 const anime = (state = { animeList: [], animeStatus: {}}, action) => {
   let animeStatus;
   switch (action.type) {
@@ -51,6 +62,7 @@ const anime = (state = { animeList: [], animeStatus: {}}, action) => {
 
 const rootReducer = combineReducers({
   status,
+  user,
   anime,
   router: routing
 });
