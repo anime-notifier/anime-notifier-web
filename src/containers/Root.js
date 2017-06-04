@@ -11,6 +11,7 @@ import NavBar from 'components/NavBar';
 import Home from './Home';
 import LoginRegister from './LoginRegister';
 import UserList from './UserList';
+import Logout from 'components/Logout';
 
 class Root extends Component {
   render() {
@@ -22,6 +23,7 @@ class Root extends Component {
             <Switch>
               <Route path="/login" component={LoginRegister} />
               <Route path="/register" component={LoginRegister} />
+              <Route path="/logout" component={Logout} />
               <Route path="/:provider/:userName" component={UserList} />
               <Route path="/" component={Home} />
             </Switch>
