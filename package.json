@@ -1,6 +1,6 @@
 {
-  "name": "anime-notifier-web",
-  "version": "0.1.0",
+  "name": "anitrack-web",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
