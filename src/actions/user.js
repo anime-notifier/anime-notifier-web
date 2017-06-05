@@ -1,14 +1,38 @@
 import { socket } from 'websocket';
 
-exports.login = (email, password) => {
-  socket.emit('user', {type: "login", email, password});
-}
-exports.register = (name, email, password) => {
-  socket.emit('user', {type: "register", name, email, password});
+export function login(body) {
+  return fetch('/api/login', {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  }).then((response) => {
+    return response.json()
+  })
 }
 
-exports.logout = () => {
-  socket.emit('user', {type: "logout"});
+export function register(body) {
+  return fetch('/api/register', {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  }).then((response) => {
+    return response.json()
+  })
+}
+
+export function logout() {
+  return fetch('/api/logout', {
+    method: 'POST',
+    credentials: 'same-origin',
+  }).then((response) => {
+    return response.json()
+  })
 }
 
 exports.checkSession = () => {

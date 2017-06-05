@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Card, Form, FormGroup, Input } from 'reactstrap';
 
-import { login } from 'actions/user';
+import { login, getMyUserData } from 'actions/user';
 
 import StatusAlert from 'components/StatusAlert';
 
@@ -28,11 +28,18 @@ class LoginForm extends Component {
       this.alert.getWrappedInstance().err("Password cannot be empty");
       return;
     }
-    login(this.state.email, this.state.password);
+    login({email: this.state.email, password: this.state.password}).then((res) => {
+      if(res.status === "success"){
+        this.onSuccess();
+      }else{
+        this.alert.getWrappedInstance().err(res.error);
+      }
+    })
   }
 
   onSuccess(){
-    this.props.history.replace('/');
+    getMyUserData();
+    this.props.history.push('/');
   }
 
   render() {

@@ -40,7 +40,13 @@ class RegisterForm extends Component {
       this.alert.getWrappedInstance().err("Password must be the same as confirm password");
       return;
     }
-    register(this.state.name, this.state.email, this.state.password);
+    register({name: this.state.name, email: this.state.email, password: this.state.password}).then((res) => {
+      if(res.status === "success"){
+        this.onSuccess();
+      }else{
+        this.alert.getWrappedInstance().err(res.error);
+      }
+    })
   }
 
   onSuccess(){
