@@ -50,14 +50,14 @@ class RegisterForm extends Component {
   }
 
   onSuccess(){
-    this.props.history.replace('/');
+    window.location.replace('/login/success')
   }
 
   render() {
     return (
       <Card style={css.card}>
         <h3 style={css.loginTitle}>AniTrack</h3>
-        <StatusAlert target="register" onSuccess={() => {this.onSuccess()}} ref={(a) => {this.alert = a}} >Register Success!</StatusAlert>
+        <StatusAlert ref={(a) => {this.alert = a}} />
         <Form onSubmit={(e) => {this.register(e)}}>
           <FormGroup>
             <Input style={css.inputBox} type="text" placeholder="Username" value={this.state.name} onChange={(e) => {this.setState({name: e.target.value});}}/>

@@ -39,14 +39,14 @@ class LoginForm extends Component {
 
   onSuccess(){
     getMyUserData();
-    this.props.history.push('/');
+    window.location.replace('/');
   }
 
   render() {
     return (
       <Card style={css.card}>
         <h3 style={css.loginTitle}>AniTrack</h3>
-        <StatusAlert target="login" onSuccess={() => {this.onSuccess()}} ref={(a) => {this.alert = a}} >Login Success!</StatusAlert>
+        <StatusAlert ref={(a) => {this.alert = a}} />
         <Form onSubmit={(e) => {this.login(e)}}>
           <FormGroup>
             <Input style={css.inputBox} type="email" placeholder="Email" value={this.state.email} onChange={(e) => {this.setState({email: e.target.value});}}/>
