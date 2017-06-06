@@ -8,7 +8,7 @@ There are some enviroment variables that are required to properly run the projec
 The server required to provide data is hosted in a different repo that can be accessed [here](https://github.com/anitrack/anitrack).
 
 ## Setting up your own server
-**TL;DR: Clone, install, setup .env, build, serve static file.**
+**TL;DR: Clone, install, setup .env, build, serve static folder and proxy /api**
 
 It is very easy to deploy a production build thanks to create-react-app. However, this guide will assume that you are familiar with setting up a server and skip through a lot of details.
 
@@ -40,7 +40,8 @@ cp .env.example .env
 ```
 npm run build
 ```
-This will create a folder called `build` which should be served as static file. This guide will use Nginx for that but you can use anything you like
+This will create a folder called `build` which should be served as static file. Additionally, the domain should route requests to `/api` to anitrack server.
+This guide will use Nginx for that but you can use anything you like
 
 6. Assuming you are running ubuntu, the following are configs that can be copied to nginx config file
 ```
@@ -54,7 +55,24 @@ server{
   root #PROJECT_PATH#/build;
   index index.html;
   try_files $uri $uri/ /index.html;
+
+  location /api {
+    proxy_pass #BACKEND_SERVER#;
+
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-NginX-Proxy true;
+    proxy_ssl_session_reuse off;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+  }
 }
+```
+Remember to change #VARIABLE# with the correct value. An example of the values can be seen here:
+```
+DOMAIN=anitrack.uk
+PROKECT_PATH=/var/www/anitrack-web
+BACKEND_SERVER=http://localhost:4000
 ```
 There are a few things that can be added to the config such as SSL, gzip, and extended cookie expiry. However, those are not within the scope of this guide.
 
