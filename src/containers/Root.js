@@ -9,6 +9,8 @@ import {
 import NavBar from 'components/NavBar';
 
 import Home from './Home';
+
+import SessionHandler from './SessionHandler';
 import LoginRegister from './LoginRegister';
 import UserList from './UserList';
 import Logout from 'components/Logout';
@@ -20,6 +22,7 @@ class Root extends Component {
         <ConnectedRouter history={this.props.history}>
           <div>
             <NavBar />
+            <Route path="/" component={SessionHandler} />
             <Switch>
               <Route path="/login" component={LoginRegister} />
               <Route path="/register" component={LoginRegister} />
