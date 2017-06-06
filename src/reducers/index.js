@@ -15,7 +15,10 @@ const status = (state = { about: null, status: null, error: null}, action) => {
 const user = (state = { isLoggedIn: null, myUserData: {}}, action) => {
   switch (action.type) {
     case 'CHECK_SESSION':
-      return {...state, isLoggedIn: action.isLoggedIn};
+      if(state.isLoggedIn !== action.isLoggedIn){
+        return {...state, isLoggedIn: action.isLoggedIn};
+      }
+      return state;
     case 'SET_MY_USER_DATA':
       return {...state, myUserData: action.myUserData};
     default:
