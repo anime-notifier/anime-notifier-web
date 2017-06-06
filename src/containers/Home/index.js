@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, InputGroup, InputGroupButton, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import MediaQuery from 'react-responsive';
 
-import css from './css';
+import * as css from './css';
 
 const flexItem  = [
   {icon: "fa-code", title: "Open Source", desc: "All of the codes used to power this project is available publicly. Anyone can modify and contribute to make it better!"},

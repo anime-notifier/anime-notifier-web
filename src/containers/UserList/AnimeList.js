@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, Media } from 'reactstrap';
 
-import css from './css';
+import * as css from './css';
 
 import { resetAnimeList, getAnimeStatus } from 'actions/anime';
 

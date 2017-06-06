@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'reactstrap';
 
-import css from './css';
+import * as css from './css';
 import WatchStatus from './WatchStatus';
 import AnimeList from './AnimeList';
 

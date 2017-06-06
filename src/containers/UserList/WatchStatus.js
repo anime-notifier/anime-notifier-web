@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardText, Collapse, ListGroup, ListGroupItem } from 'reactstrap'
 import MediaQuery from 'react-responsive';
 
-import css from './css';
+import * as css from './css';
 
 const statusList = [
   {id: 1, name: 'Watching'},

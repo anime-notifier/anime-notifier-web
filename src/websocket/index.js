@@ -1,10 +1,11 @@
 // Start websocket
-const io = require('socket.io-client');
+import routes from 'websocket/routes';
+import io from 'socket.io-client'
 const socket = io(process.env.REACT_APP_BACKEND_SERVER);
 
-exports.setupWebsocket = () => {
+export function setupWebsocket(){
   // Setup route
-  require('websocket/routes')(socket);
+  routes(socket);
 }
 
-exports.socket = socket;
+export { socket }
