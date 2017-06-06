@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Navbar, NavbarBrand, Collapse, Nav, NavItem, NavbarToggler } from 'reactstrap';
 
@@ -17,6 +18,12 @@ class NavBar extends Component {
   }
 
   render() {
+    let user = "";
+    if(this.props.isLoggedIn === true){
+      user = <a href="/logout" style={{color: "white"}}>{this.props.myUserData.name}</a>;
+    }else if(this.props.isLoggedIn === false){
+      user = <Login/>
+    }
     return (
       <Navbar light toggleable className="fixed-top" style={{backgroundColor: "rgba(0,0,0,.65)", position: "absolute"}}>
         <NavbarToggler right onClick={() => {this.toggle()}}>
@@ -26,7 +33,7 @@ class NavBar extends Component {
         <Collapse navbar isOpen={this.state.isOpen}>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <Login/>
+              {user}
             </NavItem>
           </Nav>
         </Collapse>
@@ -35,4 +42,11 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.user.isLoggedIn,
+    myUserData: state.user.myUserData,
+  };
+};
+
+export default connect(mapStateToProps)(NavBar);
