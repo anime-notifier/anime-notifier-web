@@ -1,11 +1,11 @@
 import { socket } from 'websocket';
 import { store } from 'index';
 
-exports.getAnimeStatus = (provider, userName) => {
+export function getAnimeStatus(provider, userName) {
   socket.emit('anime', {type: "getList", provider, userName});
 }
 
-exports.resetAnimeList = () => {
+export function resetAnimeList() {
   store.dispatch({
     type: 'RESET_MAL_ANIME_LIST'
   });

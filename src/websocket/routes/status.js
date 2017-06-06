@@ -1,6 +1,6 @@
 import { store } from 'index';
 
-exports.handleStatus = (data) => {
+export function handleStatus(data){
   store.dispatch({
     type: 'HANDLE_STATUS',
     about: data.about,

@@ -8,7 +8,7 @@ import {
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 
-import css from './css';
+import * as css from './css';
 
 class LoginRegister extends Component {
   onClick(to){

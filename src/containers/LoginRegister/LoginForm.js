@@ -5,7 +5,7 @@ import { login, getMyUserData } from 'actions/user';
 
 import StatusAlert from 'components/StatusAlert';
 
-import css from './css';
+import * as css from './css';
 
 import { isValidEmail } from 'helper';
 

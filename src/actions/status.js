@@ -1,6 +1,6 @@
 import { store } from 'index';
 
-exports.resetStatus = () => {
+export function resetStatus() {
   store.dispatch({
     type: 'RESET_STATUS'
   });

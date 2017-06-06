@@ -1,6 +1,6 @@
-import status from './status';
-import user from './user';
-import anime from './anime';
+import * as status from './status';
+import * as user from './user';
+import * as anime from './anime';
 
 // Set up routes here instead of messing with code
 const routes =
@@ -44,7 +44,7 @@ const mapRoute = () => {
   })
 }
 
-module.exports = (socket) => {
+export default function(socket){
   mapRoute();
   routes.forEach((val) => {
     socket.on(val.on, (data) => {

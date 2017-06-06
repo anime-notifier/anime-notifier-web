@@ -35,10 +35,10 @@ export function logout() {
   })
 }
 
-exports.checkSession = () => {
+export function checkSession() {
   socket.emit('user', {type: "checkSession"});
 }
 
-exports.getMyUserData = () => {
+export function getMyUserData() {
   socket.emit('user', {type: "getMyUserData"});
 }

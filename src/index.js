@@ -10,7 +10,7 @@ import { setupWebsocket } from 'websocket';
 setupWebsocket();
 
 const store = configureStore();
-exports.store = store;
+export { store }
 
 ReactDOM.render(
   <Root store={store} history={history} />,
