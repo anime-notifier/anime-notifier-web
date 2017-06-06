@@ -23,10 +23,10 @@ class Root extends Component {
           <div>
             <NavBar />
             <Route path="/" component={SessionHandler} />
+            <Route path="/logout" component={Logout} />
             <Switch>
               <Route path="/login" component={LoginRegister} />
               <Route path="/register" component={LoginRegister} />
-              <Route path="/logout" component={Logout} />
               <Route path="/:provider/:userName" component={UserList} />
               <Route path="/" component={Home} />
             </Switch>
