@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Component } from 'react';
 
 import { logout } from 'actions/user';
 
 class Logout extends Component {
   render() {
-    logout();
-    return (
-      <Redirect to="/" />
-    );
+    logout().then(() => {
+      window.location.replace('/')
+    });
+    return null;
   }
 }
 
