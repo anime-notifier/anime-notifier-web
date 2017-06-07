@@ -8,12 +8,13 @@ import {
 
 import NavBar from 'components/NavBar';
 
-import Home from './Home';
-
 import SessionHandler from './SessionHandler';
 import LoginRegister from './LoginRegister';
-import UserList from './UserList';
 import Logout from 'components/Logout';
+
+import Home from './Home';
+import UserList from './UserList';
+import Dashboard from './Dashboard';
 
 class Root extends Component {
   render() {
@@ -27,6 +28,9 @@ class Root extends Component {
             <Switch>
               <Route path="/login" component={LoginRegister} />
               <Route path="/register" component={LoginRegister} />
+
+              <Route path="/dashboard" component={Dashboard} />
+
               <Route path="/:provider/:userName" component={UserList} />
               <Route path="/" component={Home} />
             </Switch>
