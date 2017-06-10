@@ -7,6 +7,7 @@ import * as css from './css';
 import { resetAnimeList, getAnimeStatus } from 'actions/anime';
 
 import StatusBadge from 'components/StatusBadge';
+import Spinner from 'components/Spinner';
 
 class AnimeList extends Component {
   componentWillMount(){
@@ -26,7 +27,7 @@ class AnimeList extends Component {
     if(this.props.animeList.length === 0){
       return (
         <div style={{textAlign: 'center'}}>
-          <i className="fa fa-spin fa-spinner" style={{color: 'white', fontSize: "5em"}} />
+          <Spinner style={{color: 'white', fontSize: "5em"}} />
         </div>
       )
     }

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Badge } from 'reactstrap';
 
+import Spinner from './Spinner';
+
 class StatusBadge extends Component {
   render() {
-    let child = <i className="fa fa-spin fa-spinner" />;
+    let child = <Spinner />;
     let color = "default";
     switch(this.props.available){
       case true:
